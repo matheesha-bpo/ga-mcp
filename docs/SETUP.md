@@ -137,12 +137,14 @@ The website sends events to Google Tag Manager (GTM). GTM must forward them to G
      **All Pages**
    - a **GA4 Event** tag for `page_view`, triggered by the Custom Event `page_view`. The
      site sends this on every in-app navigation.
-   - GA4 Event tags for `add_to_cart`, `purchase` and `generate_lead`, each triggered by a
+   - GA4 Event tags for `add_to_cart`, `begin_checkout`, `purchase` and `generate_lead`, each triggered by a
      Custom Event with the same name. Tick **Send Ecommerce data** → Data source: **Data
      Layer**, so `transaction_id`, `value`, `currency` and `items` reach GA.
 2. If a tag is missing, create it, then click **Submit** → **Publish**.
 3. **GA4** → **Admin** → **Events** (or **Key events**): mark `purchase` and
-   `generate_lead` as **key events**.
+   `generate_lead` as **key events**. `generate_lead` (free report) and
+   `begin_checkout` (paid order created) are new: they appear after the attribution
+   update is live on the site.
 4. Check it: GA4 → **Reports** → **Realtime**. Open the site in another tab and click
    around; you should see yourself within about 30 seconds.
 
