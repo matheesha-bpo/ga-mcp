@@ -18,7 +18,7 @@ The full Kandy guide (data MCP + GTM + this GA MCP) is `docs/mcp-setup-a-z.md` i
 ## 1. Find Kandy's GA4 property ID
 
 1. Open <https://analytics.google.com> and switch to the Kandy property (top-left picker).
-   The site sends data with the measurement ID in `NEXT_PUBLIC_GA_ID` (`G-…`).
+   (The site loads GA through Google Tag Manager `GTM-PPRDT499`, set in `NEXT_PUBLIC_GA_ID`.)
 2. **Admin** → **Property details**. Copy the **Property ID** (digits only, e.g.
    `412345678`). This is a different number from the `G-…` measurement ID.
 
