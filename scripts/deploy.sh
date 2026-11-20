@@ -30,6 +30,15 @@ gcloud services enable \
   analyticsdata.googleapis.com \
   analyticsadmin.googleapis.com
 
+echo "==> Build permissions (new projects: Cloud Build uses the Compute default service account)"
+gcloud services enable compute.googleapis.com
+PROJECT_NUMBER="$(gcloud projects describe "${PROJECT_ID}" --format='value(projectNumber)')"
+BUILD_SA="${PROJECT_NUMBER}-compute@developer.gserviceaccount.com"
+for role in roles/run.builder roles/serviceusage.serviceUsageConsumer; do
+  gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
+    --member="serviceAccount:${BUILD_SA}" --role="${role}" --condition=None >/dev/null
+done
+
 echo "==> Service account ${SA_EMAIL}"
 if ! gcloud iam service-accounts describe "${SA_EMAIL}" >/dev/null 2>&1; then
   gcloud iam service-accounts create "${SA_NAME}" \
