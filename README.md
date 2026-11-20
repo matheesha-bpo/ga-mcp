@@ -9,6 +9,8 @@ auth as the Meta Ads MCP.
 
 Full step-by-step setup: **[docs/SETUP.md](docs/SETUP.md)**
 
+Another business (separate service, service account and secret): **[docs/KANDY.md](docs/KANDY.md)**
+
 ## How it works
 
 ```
