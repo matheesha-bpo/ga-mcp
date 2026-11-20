@@ -13,6 +13,8 @@ and the other way round.
 
 There's no code change. You run the deploy script again with different names.
 
+The full Kandy guide (data MCP + GTM + this GA MCP) is `docs/mcp-setup-a-z.md` in the Kandy repo.
+
 ## 1. Find Kandy's GA4 property ID
 
 1. Open <https://analytics.google.com> and switch to the Kandy property (top-left picker).
@@ -79,9 +81,10 @@ claude mcp add --transport http kandy-ga4 "https://<kandy-service-url>/mcp?key=<
 
 GA4 → Kandy property:
 
-1. The Kandy site currently sends page views only (gtag in `app/(site)/layout.js`), no
-   `purchase` / `add_to_cart` events. GA reports traffic, landing pages and sources, but
-   not revenue. Revenue comes from the Kandy platform MCP until ecommerce events are added.
+1. The Kandy site sends GA4 ecommerce events through its GTM container (`GTM-PPRDT499`):
+   `view_item`, `add_to_cart`, `begin_checkout`, `add_payment_info`, `purchase`. GTM needs
+   one GA4 Event tag to forward them. Follow Part 3 of `docs/mcp-setup-a-z.md` in the Kandy
+   repo, then mark `purchase` as a **key event**.
 2. **Admin** → **Data retention** → **14 months**.
 3. **Admin** → **Product links**: link Google Ads and Search Console if you use them.
 
