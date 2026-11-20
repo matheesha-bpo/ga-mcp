@@ -11,6 +11,8 @@ Full step-by-step setup: **[docs/SETUP.md](docs/SETUP.md)**
 
 Another business (separate service, service account and secret): **[docs/KANDY.md](docs/KANDY.md)**
 
+Uptown uses the same steps with `SERVICE=uptown-ga-mcp SA_NAME=uptown-ga-mcp SECRET_NAME=uptown-ga-mcp-secret` (full guide: `docs/mcp-setup-a-z.md` in the Uptown repo).
+
 ## How it works
 
 ```
